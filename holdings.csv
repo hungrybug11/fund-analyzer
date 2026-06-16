@@ -1,0 +1,12 @@
+code,name,type,weight,benchmark,currency
+025209,永赢半导体C,a_share_mf,0.1885,000300,CNY
+025208,永赢半导体A,a_share_mf,0.0672,000300,CNY
+018229,易方达全球优质A(QDII),a_share_mf,0.2413,^GSPC,CNY
+018230,易方达全球优质C(QDII),a_share_mf,0.1042,^GSPC,CNY
+022364,永赢科技A,a_share_mf,0.1281,000300,CNY
+022365,永赢科技C,a_share_mf,0.0697,000300,CNY
+012920,易方达全球成长精选A(QDII),a_share_mf,0.0655,^GSPC,CNY
+017731,嘉实产业升级C(QDII),a_share_mf,0.0413,^GSPC,CNY
+017730,嘉实产业升级A(QDII),a_share_mf,0.0323,^GSPC,CNY
+016370,信澳业绩驱动A,a_share_mf,0.0321,000300,CNY
+008326,东财通信A,a_share_mf,0.0307,000300,CNY

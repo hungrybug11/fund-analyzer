@@ -1,0 +1,81 @@
+{
+  "funds": [
+    {
+      "fundCode": "018229",
+      "name": "易方达全球优质企业混合(QDII)A",
+      "shares": 11076.72,
+      "costPrice": 2.0347,
+      "updatedAt": "2026-06-16"
+    },
+    {
+      "fundCode": "025208",
+      "name": "永赢先锋半导体智选混合A",
+      "shares": 8194.82,
+      "costPrice": 2.3314,
+      "updatedAt": "2026-06-16"
+    },
+    {
+      "fundCode": "022364",
+      "name": "永赢科技智选混合A",
+      "shares": 2731.63,
+      "costPrice": 5.0412,
+      "updatedAt": "2026-06-16"
+    },
+    {
+      "fundCode": "012920",
+      "name": "易方达全球成长精选混合(QDII)A",
+      "shares": 1461.37,
+      "costPrice": 2.9219,
+      "updatedAt": "2026-06-16"
+    },
+    {
+      "fundCode": "017731",
+      "name": "嘉实全球产业升级股票(QDII)C",
+      "shares": 1095.53,
+      "costPrice": 3.0652,
+      "updatedAt": "2026-06-16"
+    },
+    {
+      "fundCode": "016665",
+      "name": "天弘全球高端制造混合(QDII)C",
+      "shares": 968.26,
+      "costPrice": 2.6088,
+      "updatedAt": "2026-06-16"
+    },
+    {
+      "fundCode": "017730",
+      "name": "嘉实全球产业升级股票(QDII)A",
+      "shares": 904,
+      "costPrice": 3.7168,
+      "updatedAt": "2026-06-16"
+    },
+    {
+      "fundCode": "012922",
+      "name": "易方达全球成长精选混合(QDII)C",
+      "shares": 378.48,
+      "costPrice": 3.3819,
+      "updatedAt": "2026-06-16"
+    },
+    {
+      "fundCode": "016664",
+      "name": "天弘全球高端制造混合(QDII)A",
+      "shares": 460.09,
+      "costPrice": 3.2602,
+      "updatedAt": "2026-06-16"
+    },
+    {
+      "fundCode": "008326",
+      "name": "东财通信A",
+      "shares": 237.07,
+      "costPrice": 5.3121,
+      "updatedAt": "2026-06-16"
+    },
+    {
+      "fundCode": "006502",
+      "name": "财通集成电路产业股票A",
+      "shares": 156.34,
+      "costPrice": 8.3155,
+      "updatedAt": "2026-06-16"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+# ============================================================
+#  Fund Portfolio Analysis Configuration
+#  11 funds, total value 85,355
+#  Auto-generated from MCP portfolio.json
+# ============================================================
+
+portfolio:
+  name: 我的基金组合
+  base_currency: CNY
+  total_value: 85355
+
+funds:
+  - code: "018229"
+    name: "易方达全球优质企业混合(QDII)A"
+    type: "a_share_mf"
+    weight: 0.2866
+    benchmark: "^GSPC"
+    currency: "CNY"
+
+  - code: "025208"
+    name: "永赢先锋半导体智选混合A"
+    type: "a_share_mf"
+    weight: 0.2370
+    benchmark: "000300"
+    currency: "CNY"
+
+  - code: "022364"
+    name: "永赢科技智选混合A"
+    type: "a_share_mf"
+    weight: 0.1915
+    benchmark: "000300"
+    currency: "CNY"
+
+  - code: "012920"
+    name: "易方达全球成长精选混合(QDII)A"
+    type: "a_share_mf"
+    weight: 0.0780
+    benchmark: "^GSPC"
+    currency: "CNY"
+
+  - code: "017731"
+    name: "嘉实全球产业升级股票(QDII)C"
+    type: "a_share_mf"
+    weight: 0.0537
+    benchmark: "^GSPC"
+    currency: "CNY"
+
+  - code: "016665"
+    name: "天弘全球高端制造混合(QDII)C"
+    type: "a_share_mf"
+    weight: 0.0381
+    benchmark: "^GSPC"
+    currency: "CNY"
+
+  - code: "017730"
+    name: "嘉实全球产业升级股票(QDII)A"
+    type: "a_share_mf"
+    weight: 0.0452
+    benchmark: "^GSPC"
+    currency: "CNY"
+
+  - code: "012922"
+    name: "易方达全球成长精选混合(QDII)C"
+    type: "a_share_mf"
+    weight: 0.0198
+    benchmark: "^GSPC"
+    currency: "CNY"
+
+  - code: "016664"
+    name: "天弘全球高端制造混合(QDII)A"
+    type: "a_share_mf"
+    weight: 0.0183
+    benchmark: "^GSPC"
+    currency: "CNY"
+
+  - code: "008326"
+    name: "东财通信A"
+    type: "a_share_mf"
+    weight: 0.0148
+    benchmark: "000300"
+    currency: "CNY"
+
+  - code: "006502"
+    name: "财通集成电路产业股票A"
+    type: "a_share_mf"
+    weight: 0.0171
+    benchmark: "000300"
+    currency: "CNY"
+
+analysis:
+  risk_free_rate: 0.025
+  lookback_years: 5
+  rebalance_frequency: quarterly
+  rebalance_band: 0.05
+
+output:
+  data_dir: data
+  output_dir: output
+  chart_format: html
+  generate_html_report: true
+  cache_expiry_days: 1
+
+notify:
+  feishu_enabled: false
+  feishu_webhook_url: ''
+  wecom_enabled: false
+  wecom_webhook_url: ''
