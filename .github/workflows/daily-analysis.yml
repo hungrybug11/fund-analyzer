@@ -1,60 +1,60 @@
- 1→name: Daily Fund Analysis
- 2→
- 3→on:
- 4→  schedule:
- 5→    - cron: "30 6 * * 1-5"
- 6→  workflow_dispatch:
- 7→
- 8→jobs:
- 9→  analyze:
-10→    runs-on: ubuntu-latest
-11→    permissions:
-12→      contents: write
-13→      pages: write
-14→      id-token: write
-15→
-16→    steps:
-17→      - name: Checkout
-18→        uses: actions/checkout@v4
-19→
-20→      - name: Setup Python
-21→        uses: actions/setup-python@v5
-22→        with:
-23→          python-version: "3.12"
-24→
-25→      - name: Install dependencies
-26→        run: pip install pandas numpy pyarrow scipy plotly pyyaml jinja2
-27→
-28→      - name: Sync config from portfolio
-29→        run: python sync_mcp_to_config.py || echo "Sync failed, using existing config.yaml"
-30→
-31→      - name: Run analysis
-32→        run: |
-33→          mkdir -p output
-34→          python run.py || echo "Analysis failed, check logs"
-35→        continue-on-error: true
-36→
-37→      - name: Verify output exists
-38→        run: |
-39→          if [ -f output/report.html ]; then
-40→            echo "Report generated successfully"
-41→            ls -la output/
-42→          else
-43→            echo "Report not found, creating placeholder"
-44→            echo "<html><body><h1>Analysis not available</h1><p>Check back later</p></body></html>" > output/report.html
-45→          fi
-46→
-47→      - name: Deploy to GitHub Pages
-48→        uses: peaceiris/actions-gh-pages@v4
-49→        with:
-50→          github_token: ${{ secrets.GITHUB_TOKEN }}
-51→          publish_dir: ./output
-52→          publish_branch: gh-pages
-53→          disable_nojekyll: true
-54→          commit_message: "Auto-report #${{ github.run_number }}"
-55→
-56→      - name: Summary
-57→        run: |
-58→          echo "## 📊 今日基金分析报告" >> $GITHUB_STEP_SUMMARY
-59→          echo "**分析时间**: $(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M')" >> $GITHUB_STEP_SUMMARY
-60→          echo "**📄 查看报告**: https://hungrybug11.github.io/fund-analyzer/report.html" >> $GITHUB_STEP_SUMMARY
+name: Daily Fund Analysis
+
+on:
+  schedule:
+    - cron: "30 6 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pandas numpy pyarrow scipy plotly pyyaml jinja2
+
+      - name: Sync config from portfolio
+        run: python sync_mcp_to_config.py || echo "Sync failed, using existing config.yaml"
+
+      - name: Run analysis
+        run: |
+          mkdir -p output
+          python run.py || echo "Analysis failed, check logs"
+        continue-on-error: true
+
+      - name: Verify output exists
+        run: |
+          if [ -f output/report.html ]; then
+            echo "Report generated successfully"
+            ls -la output/
+          else
+            echo "Report not found, creating placeholder"
+            echo "<html><body><h1>Analysis not available</h1><p>Check back later</p></body></html>" > output/report.html
+          fi
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          publish_branch: gh-pages
+          disable_nojekyll: true
+          commit_message: "Auto-report #${{ github.run_number }}"
+
+      - name: Summary
+        run: |
+          echo "## 📊 今日基金分析报告" >> $GITHUB_STEP_SUMMARY
+          echo "**分析时间**: $(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M')" >> $GITHUB_STEP_SUMMARY
+          echo "**📄 查看报告**: https://hungrybug11.github.io/fund-analyzer/report.html" >> $GITHUB_STEP_SUMMARY
