@@ -2,9 +2,8 @@ name: Daily Fund Analysis
 
 on:
   schedule:
-    # 每个交易日 14:30 北京时间 = 06:30 UTC (GitHub Actions 准点偏差 ±15分钟)
     - cron: "30 6 * * 1-5"
-  workflow_dispatch:  # 允许手动触发
+  workflow_dispatch:
 
 jobs:
   analyze:
@@ -26,9 +25,15 @@ jobs:
       - name: Install dependencies
         run: pip install pandas numpy pyarrow scipy plotly pyyaml jinja2
 
+      - name: Sync config from portfolio
+        run: python sync_mcp_to_config.py
+
       - name: Run analysis
         run: python run.py
         continue-on-error: true
+
+      - name: Ensure output directory
+        run: mkdir -p output && ls -la output/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
@@ -36,11 +41,11 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./output
           publish_branch: gh-pages
-          keep_files: false
-          commit_message: "Auto-report ${{ github.run_number }}"
+          disable_nojekyll: true
+          commit_message: "Auto-report #${{ github.run_number }}"
 
       - name: Summary
         run: |
-          echo "## 📊 今日基金分析" >> $GITHUB_STEP_SUMMARY
+          echo "## 📊 今日基金分析报告" >> $GITHUB_STEP_SUMMARY
           echo "**分析时间**: $(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M')" >> $GITHUB_STEP_SUMMARY
-          echo "**查看报告**: https://${{ github.repository_owner }}.github.io/fund-analyzer/report.html" >> $GITHUB_STEP_SUMMARY
+          echo "**📄 查看报告**: https://hungrybug11.github.io/fund-analyzer/report.html" >> $GITHUB_STEP_SUMMARY
