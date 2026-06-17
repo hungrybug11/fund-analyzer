@@ -14,6 +14,7 @@ from typing import Optional
 
 import numpy as np
 import pandas as pd
+from src.analysis.market_fetcher import fetch_market_snapshot
 
 
 # ======================================================================
@@ -31,38 +32,7 @@ class SectorSignal:
 
 TODAY = date.today().strftime("%Y-%m-%d")
 
-MARKET_SNAPSHOT: dict[str, SectorSignal] = {
-    "半导体": SectorSignal(
-        name="半导体",
-        trend="强势",
-        note="半导体板块资金净流入+163亿，全行业第1。永赢半导体今日+5.68%，近6月+93.76%。主力大幅加仓，板块热度极高。",
-        sentiment=0.8,
-    ),
-    "QDII全球": SectorSignal(
-        name="QDII全球",
-        trend="震荡偏强",
-        note="美股标普+0.50%、纳指+0.31%。易方达全球优质近1年+86%，同类排名21。QDII限购普遍，额度稀缺推升溢价。",
-        sentiment=0.3,
-    ),
-    "科技": SectorSignal(
-        name="科技",
-        trend="强势",
-        note="永赢科技今日+3.62%，近1年+307%，同类第21。消费电子资金流入+47亿。科技板块内部轮动健康，AI+硬件双主线支撑。",
-        sentiment=0.6,
-    ),
-    "通信": SectorSignal(
-        name="通信",
-        trend="强势",
-        note="通信设备板块资金净流入+147亿，全行业第2。东财通信今日+7.36%。5G/光通信/卫星互联网多重催化。",
-        sentiment=0.7,
-    ),
-    "混合": SectorSignal(
-        name="混合",
-        trend="强势",
-        note="信澳业绩驱动今日+8.59%，近1年+357%同类第7。大盘普涨（上证+1.61%、深证+3.79%），主力净流入+685亿，北向+840亿。",
-        sentiment=0.6,
-    ),
-}
+MARKET_SNAPSHOT: dict[str, SectorSignal] = fetch_market_snapshot()  # auto-fetched live data
 
 # ======================================================================
 # Fund → sector mapping
@@ -126,6 +96,7 @@ def generate_daily_advice(
       6. Everything else → hold
     """
     from src.analysis.risk import sharpe_ratio, max_drawdown
+    from src.analysis.market_fetcher import fetch_market_snapshot
 
     advice_list = []
     today = TODAY
