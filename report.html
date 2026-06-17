@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的基金组合 - 基金组合分析报告</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f5f6fa;
+            color: #2d3436;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .header {
+            background: linear-gradient(135deg, #0984e3, #6c5ce7);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        .header h1 { font-size: 28px; margin-bottom: 8px; }
+        .header .subtitle { opacity: 0.85; font-size: 14px; }
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .section h2 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #0984e3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 14px;
+        }
+        th, td {
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #555;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        tr:hover { background: #f8f9ff; }
+        .chart-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .chart-container img { max-width: 100%; border-radius: 8px; }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            color: #856404;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin: 8px 0;
+            font-size: 13px;
+        }
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 16px 0;
+        }
+        .metric-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+        .metric-card .value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0984e3;
+        }
+        .metric-card .label {
+            font-size: 12px;
+            color: #888;
+            margin-top: 4px;
+        }
+        .footer {
+            text-align: center;
+            color: #aaa;
+            font-size: 12px;
+            margin-top: 40px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>我的基金组合 · 组合分析报告</h1>
+            <div class="subtitle">
+                生成时间: 2026-06-17 08:16 | 11 只基金 |
+                数据区间: 2025-09-12 ~ 2026-06-15
+            </div>
+        </div>
+
+        
+
+        <!-- 组合概况 -->
+        <div class="section">
+            <h2>📊 组合概况</h2>
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <div class="value">171.48%</div>
+                    <div class="label">组合年化收益</div>
+                </div>
+                <div class="metric-card">
+                    <div class="value">31.59%</div>
+                    <div class="label">组合年化波动</div>
+                </div>
+                <div class="metric-card">
+                    <div class="value">5.35</div>
+                    <div class="label">夏普比率</div>
+                </div>
+                <div class="metric-card">
+                    <div class="value">-12.13%</div>
+                    <div class="label">最大回撤</div>
+                </div>
+                <div class="metric-card">
+                    <div class="value">1.3</div>
+                    <div class="label">有效持仓数</div>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>基金代码</th>
+                        <th>名称</th>
+                        <th>当前权重</th>
+                        <th>建议权重(最大夏普)</th>
+                        <th>建议权重(风险平价)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>018229</td>
+                        <td>易方达全球优质企业混合(QDII)A</td>
+                        <td>28.7%</td>
+                        <td>0.0%</td>
+                        <td>10.9%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>025208</td>
+                        <td>永赢先锋半导体智选混合A</td>
+                        <td>23.7%</td>
+                        <td>15.1%</td>
+                        <td>8.0%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>022364</td>
+                        <td>永赢科技智选混合A</td>
+                        <td>19.1%</td>
+                        <td>0.0%</td>
+                        <td>8.9%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>012920</td>
+                        <td>易方达全球成长精选混合(QDII)A</td>
+                        <td>7.8%</td>
+                        <td>31.9%</td>
+                        <td>9.8%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>017731</td>
+                        <td>嘉实全球产业升级股票(QDII)C</td>
+                        <td>5.4%</td>
+                        <td>0.6%</td>
+                        <td>10.6%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>016665</td>
+                        <td>天弘全球高端制造混合(QDII)C</td>
+                        <td>3.8%</td>
+                        <td>0.0%</td>
+                        <td>8.1%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>017730</td>
+                        <td>嘉实全球产业升级股票(QDII)A</td>
+                        <td>4.5%</td>
+                        <td>15.7%</td>
+                        <td>10.5%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>012922</td>
+                        <td>易方达全球成长精选混合(QDII)C</td>
+                        <td>2.0%</td>
+                        <td>19.1%</td>
+                        <td>9.8%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>016664</td>
+                        <td>天弘全球高端制造混合(QDII)A</td>
+                        <td>1.8%</td>
+                        <td>0.0%</td>
+                        <td>8.1%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>008326</td>
+                        <td>东财通信A</td>
+                        <td>1.5%</td>
+                        <td>0.0%</td>
+                        <td>8.1%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>006502</td>
+                        <td>财通集成电路产业股票A</td>
+                        <td>1.7%</td>
+                        <td>17.6%</td>
+                        <td>7.2%</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 风险收益指标 -->
+        <div class="section">
+            <h2>📈 风险收益指标</h2>
+            <table class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th></th>
+      <th>年化收益率</th>
+      <th>年化波动率</th>
+      <th>夏普比率</th>
+      <th>索提诺比率</th>
+      <th>卡玛比率</th>
+      <th>最大回撤</th>
+      <th>回撤持续(天)</th>
+      <th>VaR 95%</th>
+      <th>CVaR 95%</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>018229</th>
+      <td>0.985888</td>
+      <td>0.288279</td>
+      <td>3.333192</td>
+      <td>5.849584</td>
+      <td>10.669788</td>
+      <td>-0.0924</td>
+      <td>29.0</td>
+      <td>0.021141</td>
+      <td>0.034189</td>
+    </tr>
+    <tr>
+      <th>025208</th>
+      <td>2.593599</td>
+      <td>0.491191</td>
+      <td>5.229331</td>
+      <td>9.835489</td>
+      <td>14.965952</td>
+      <td>-0.1733</td>
+      <td>8.0</td>
+      <td>0.040291</td>
+      <td>0.056169</td>
+    </tr>
+    <tr>
+      <th>022364</th>
+      <td>1.346499</td>
+      <td>0.388167</td>
+      <td>3.404456</td>
+      <td>6.280140</td>
+      <td>7.313955</td>
+      <td>-0.1841</td>
+      <td>26.0</td>
+      <td>0.034683</td>
+      <td>0.044040</td>
+    </tr>
+    <tr>
+      <th>012920</th>
+      <td>2.089174</td>
+      <td>0.324435</td>
+      <td>6.362361</td>
+      <td>9.873107</td>
+      <td>23.633185</td>
+      <td>-0.0884</td>
+      <td>4.0</td>
+      <td>0.030033</td>
+      <td>0.041229</td>
+    </tr>
+    <tr>
+      <th>017731</th>
+      <td>1.739620</td>
+      <td>0.304302</td>
+      <td>5.634594</td>
+      <td>9.235173</td>
+      <td>14.581892</td>
+      <td>-0.1193</td>
+      <td>23.0</td>
+      <td>0.024649</td>
+      <td>0.037295</td>
+    </tr>
+    <tr>
+      <th>016665</th>
+      <td>2.085473</td>
+      <td>0.367345</td>
+      <td>5.609096</td>
+      <td>9.996608</td>
+      <td>15.505375</td>
+      <td>-0.1345</td>
+      <td>23.0</td>
+      <td>0.027623</td>
+      <td>0.043093</td>
+    </tr>
+    <tr>
+      <th>017730</th>
+      <td>1.757669</td>
+      <td>0.304448</td>
+      <td>5.691184</td>
+      <td>9.330713</td>
+      <td>14.770330</td>
+      <td>-0.1190</td>
+      <td>23.0</td>
+      <td>0.024657</td>
+      <td>0.037274</td>
+    </tr>
+    <tr>
+      <th>012922</th>
+      <td>2.072544</td>
+      <td>0.324383</td>
+      <td>6.312117</td>
+      <td>9.794950</td>
+      <td>23.418576</td>
+      <td>-0.0885</td>
+      <td>4.0</td>
+      <td>0.030056</td>
+      <td>0.041253</td>
+    </tr>
+    <tr>
+      <th>016664</th>
+      <td>2.096956</td>
+      <td>0.367492</td>
+      <td>5.638093</td>
+      <td>10.052172</td>
+      <td>15.613967</td>
+      <td>-0.1343</td>
+      <td>23.0</td>
+      <td>0.027607</td>
+      <td>0.043086</td>
+    </tr>
+    <tr>
+      <th>008326</th>
+      <td>2.133512</td>
+      <td>0.421645</td>
+      <td>5.000675</td>
+      <td>9.290242</td>
+      <td>13.137387</td>
+      <td>-0.1624</td>
+      <td>26.0</td>
+      <td>0.035276</td>
+      <td>0.047274</td>
+    </tr>
+    <tr>
+      <th>006502</th>
+      <td>2.953760</td>
+      <td>0.490513</td>
+      <td>5.970807</td>
+      <td>12.745978</td>
+      <td>14.119314</td>
+      <td>-0.2092</td>
+      <td>26.0</td>
+      <td>0.039116</td>
+      <td>0.048814</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+
+        
+        <div class="section" style="border-left: 4px solid #e74c3c;">
+            <h2>📋 今日操作建议 <span style="font-size:12px;color:#999;font-weight:normal;">（基于当日市场行情 + 组合数据）</span></h2>
+            <p style="color:#888;font-size:13px;">📅 建议日期：2026-06-17（基于当日市场行情）</p><table style="font-size:13px; width:100%; border-collapse:collapse;"><tr style="background:#f0f0f0;"><th>基金</th><th>操作</th><th>理由</th><th>金额</th></tr><tr><td style="max-width:180px;">易方达全球优质企业混合(QDII)A</td><td style="color:#7f8c8d;font-weight:bold;">🟢 持有 持有</td><td style="max-width:350px;font-size:12px;">当前仓位 29%，板块信号中性。跟踪观察，不急于操作。</td><td style="white-space:nowrap;">不操作</td></tr><tr><td style="max-width:180px;">永赢先锋半导体智选混合A</td><td style="color:#7f8c8d;font-weight:bold;">🟢 持有 持有</td><td style="max-width:350px;font-size:12px;">当前仓位 24%，板块信号中性。跟踪观察，不急于操作。</td><td style="white-space:nowrap;">不操作</td></tr><tr><td style="max-width:180px;">永赢科技智选混合A</td><td style="color:#7f8c8d;font-weight:bold;">🟢 持有 持有</td><td style="max-width:350px;font-size:12px;">科技板块趋势向好。仓位 19% 合理，继续拿着。永赢科技今日+3.62%，近1年+307%，同类第21。消费电子资金流入+47亿</td><td style="white-space:nowrap;">不操作</td></tr><tr><td style="max-width:180px;">易方达全球成长精选混合(QDII)A</td><td style="color:#3498db;font-weight:bold;">🟡 本周 接收C合并</td><td style="max-width:350px;font-size:12px;">同基金的C份额应合并到这里。合并后仓位会增加，请重新评估比例。</td><td style="white-space:nowrap;">接收C份额转入</td></tr><tr><td style="max-width:180px;">嘉实全球产业升级股票(QDII)C</td><td style="color:#3498db;font-weight:bold;">🟡 本周 合并</td><td style="max-width:350px;font-size:12px;">C份额持有成本高于A份额。长期持有应转到A，省0.4%/年的销售服务费。走势一样，不影响收益。</td><td style="white-space:nowrap;">全部转到A份额</td></tr><tr><td style="max-width:180px;">天弘全球高端制造混合(QDII)C</td><td style="color:#3498db;font-weight:bold;">🟡 本周 合并</td><td style="max-width:350px;font-size:12px;">C份额持有成本高于A份额。长期持有应转到A，省0.4%/年的销售服务费。走势一样，不影响收益。</td><td style="white-space:nowrap;">全部转到A份额</td></tr><tr><td style="max-width:180px;">嘉实全球产业升级股票(QDII)A</td><td style="color:#3498db;font-weight:bold;">🟡 本周 接收C合并</td><td style="max-width:350px;font-size:12px;">同基金的C份额应合并到这里。合并后仓位会增加，请重新评估比例。</td><td style="white-space:nowrap;">接收C份额转入</td></tr><tr><td style="max-width:180px;">易方达全球成长精选混合(QDII)C</td><td style="color:#3498db;font-weight:bold;">🟡 本周 合并</td><td style="max-width:350px;font-size:12px;">C份额持有成本高于A份额。长期持有应转到A，省0.4%/年的销售服务费。走势一样，不影响收益。</td><td style="white-space:nowrap;">全部转到A份额</td></tr><tr><td style="max-width:180px;">天弘全球高端制造混合(QDII)A</td><td style="color:#3498db;font-weight:bold;">🟡 本周 接收C合并</td><td style="max-width:350px;font-size:12px;">同基金的C份额应合并到这里。合并后仓位会增加，请重新评估比例。</td><td style="white-space:nowrap;">接收C份额转入</td></tr><tr><td style="max-width:180px;">东财通信A</td><td style="color:#27ae60;font-weight:bold;">🟢 等待回调 加仓</td><td style="max-width:350px;font-size:12px;">夏普比率 5.0（组合最高档），当前仅占 1%。建议提到 6% 左右。通信设备板块资金净流入+147亿，全行业第2。东财通信今日+7.36%。5G/光通信/卫星互联网多重…</td><td style="white-space:nowrap;">¥4,000（分2-3次加）</td></tr><tr><td style="max-width:180px;">财通集成电路产业股票A</td><td style="color:#27ae60;font-weight:bold;">🟢 等待回调 加仓</td><td style="max-width:350px;font-size:12px;">夏普比率 6.0（组合最高档），当前仅占 2%。建议提到 7% 左右。半导体板块资金净流入+163亿，全行业第1。永赢半导体今日+5.68%，近6月+93.76%。主力大…</td><td style="white-space:nowrap;">¥4,000（分2-3次加）</td></tr></table><br><p style="font-size:12px;color:#888;"><b>📊 今日市场速览：</b><br>&nbsp;&nbsp;🟢 <b>半导体</b>：强势 — 半导体板块资金净流入+163亿，全行业第1。永赢半导体今日+5.68%，近6月+93.76%。主力大幅加仓，板块热度极高。…<br>&nbsp;&nbsp;⚪ <b>QDII全球</b>：震荡偏强 — 美股标普+0.50%、纳指+0.31%。易方达全球优质近1年+86%，同类排名21。QDII限购普遍，额度稀缺推升溢价。…<br>&nbsp;&nbsp;🟢 <b>科技</b>：强势 — 永赢科技今日+3.62%，近1年+307%，同类第21。消费电子资金流入+47亿。科技板块内部轮动健康，AI+硬件双主线支撑。…<br>&nbsp;&nbsp;🟢 <b>通信</b>：强势 — 通信设备板块资金净流入+147亿，全行业第2。东财通信今日+7.36%。5G/光通信/卫星互联网多重催化。…<br>&nbsp;&nbsp;🟢 <b>混合</b>：强势 — 信澳业绩驱动今日+8.59%，近1年+357%同类第7。大盘普涨（上证+1.61%、深证+3.79%），主力净流入+685亿，北向+840亿。…<br></p>
+        </div>
+        
+
+        
+        <div class="section">
+            <h2>💡 分析结论与建议</h2>
+            <div style="font-size:14px; line-height:2;">
+            <b>⚠️ 分散度警报：</b>你持有 11 只基金，但有效持仓数仅 1.3。这意味着涨跌高度同步，分散效果很差。主要原因是 A/C 份额重复持有，以及底层持仓大量重叠在科技/半导体。<br><b>🏆 性价比最高：</b>易方达全球成长精选混合(QDII)A（夏普 6.36），每承担 1% 风险能获得最高的收益。当前仓位可能偏低，建议加仓。<br><b>🔻 性价比最低：</b>易方达全球优质企业混合(QDII)A（夏普 3.33），波动大但收益不成正比，建议减仓或替换。<br><b>📐 仓位失衡：</b>以下基金当前仓位与风险平价建议差距超过 5%：<br>&nbsp;&nbsp;• 易方达全球优质企业混合(QDII)A：当前 29%，建议 11%（太重）<br>&nbsp;&nbsp;• 永赢先锋半导体智选混合A：当前 24%，建议 8%（太重）<br>&nbsp;&nbsp;• 永赢科技智选混合A：当前 19%，建议 9%（太重）<br>&nbsp;&nbsp;• 嘉实全球产业升级股票(QDII)C：当前 5%，建议 11%（太轻）<br>&nbsp;&nbsp;• 嘉实全球产业升级股票(QDII)A：当前 4%，建议 10%（太轻）<br><b>🔄 A/C 份额重复：</b>你的组合中有同一基金同时持有 A 和 C 份额。两者的净值走势几乎一样，只是收费方式不同。建议每对只保留一个（长期持有选 A，短期选 C），可以节省管理费而不影响收益。<br><b>💵 现金仓位建议：</b>当前市场半导体估值处于高位，机构普遍建议保留部分现金等待回调。建议留 10-20% 现金，等科技板块调整后再分批入场。
+            </div>
+        </div>
+        
+
+        <div class="footer">
+            本报告由 Fund Portfolio Analyzer 自动生成 · 仅供参考，不构成投资建议
+        </div>
+    </div>
+</body>
+</html>
